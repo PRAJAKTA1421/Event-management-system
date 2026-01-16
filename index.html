@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>College Hackathon 2025</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins', sans-serif;
+    }
+
+    body{
+      background:#05070f; /* darker base */
+      color:#e6e9f0;
+      scroll-behavior:smooth;
+    }
+
+    /* Navbar */
+    nav{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(5,7,15,0.95);
+      backdrop-filter:blur(12px);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px 60px;
+      border-bottom:1px solid rgba(255,255,255,0.06);
+    }
+
+    nav h2{
+      color:#00f7ff;
+    }
+
+    nav a{
+      color:#fff;
+      margin-left:25px;
+      text-decoration:none;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:#00f7ff;
+    }
+.hero{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(5,7,15,0.6) 0%,
+      rgba(5,7,15,0.85) 45%,
+      rgba(5,7,15,0.95) 100%
+    ),
+    linear-gradient(
+      rgba(5,7,15,0.85),
+      rgba(5,7,15,0.9)
+    ),
+    url("EVENTOOO.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  animation: bgZoom 22s ease-in-out infinite;
+
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+
+    .hero h1{
+      font-size:3.5rem;
+      animation:fadeIn 1.5s ease;
+    }
+
+    .tagline{
+      color:#00f7ff;
+      font-size:1.2rem;
+      margin:15px 0;
+      min-height:30px;
+    }
+
+    .hero p{
+      opacity:0.85;
+      margin-bottom:30px;
+    }
+
+    .btn{
+      padding:15px 40px;
+      border:none;
+      border-radius:30px;
+      background:linear-gradient(135deg,#6a5cff,#00f7ff);
+      color:#05070f;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.3s;
+      box-shadow:0 0 25px rgba(106,92,255,0.5);
+    }
+
+    .btn:hover{
+      transform:scale(1.05);
+      box-shadow:0 0 30px #00f7ff;
+    }
+
+    /* Countdown */
+    .countdown{
+      display:flex;
+      justify-content:center;
+      gap:25px;
+      margin-top:50px;
+    }
+
+    .time-box{
+      background:#0c1024;
+      padding:20px;
+      border-radius:15px;
+      width:100px;
+      text-align:center;
+      box-shadow:0 0 18px rgba(106,92,255,0.35);
+    }
+
+    .time-box h2{
+      font-size:2rem;
+      color:#00f7ff;
+    }
+
+    /* Sections */
+    section{
+      padding:90px 60px;
+      position:relative;
+      background:linear-gradient(180deg,#05070f,#070b1d);
+    }
+
+    .title{
+      text-align:center;
+      font-size:2.5rem;
+      margin-bottom:50px;
+    }
+
+    /* Highlights */
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:#0c1024;
+      padding:30px;
+      border-radius:20px;
+      text-align:center;
+      transition:0.4s;
+      border:1px solid rgba(255,255,255,0.05);
+    }
+
+    .card i{
+      font-size:2.5rem;
+      color:#00f7ff;
+      margin-bottom:15px;
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 0 30px rgba(0,247,255,0.4);
+    }
+
+    /* Timeline */
+    .timeline{
+      max-width:700px;
+      margin:auto;
+    }
+
+    .step{
+      background:#0c1024;
+      padding:20px;
+      border-left:4px solid #6a5cff;
+      margin-bottom:25px;
+      border-radius:10px;
+    }
+
+    /* Form */
+    form{
+      max-width:500px;
+      margin:auto;
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    input{
+      padding:15px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.08);
+      outline:none;
+      background:#0c1024;
+      color:#e6e9f0;
+    }
+
+    input:focus{
+      box-shadow:0 0 10px #00f7ff;
+    }
+
+    footer{
+      text-align:center;
+      padding:30px;
+      background:#03040a;
+      opacity:0.9;
+      border-top:1px solid rgba(255,255,255,0.06);
+    }
+
+    @keyframes fadeIn{
+      from{opacity:0;transform:translateY(20px);} 
+      to{opacity:1;transform:translateY(0);} 
+    }
+
+    @keyframes gradientMove{
+      0%{background-position:0% 50%;}
+      50%{background-position:100% 50%;}
+      100%{background-position:0% 50%;}
+    }
+
+    /* Smooth background zoom (cinematic) */
+    @keyframes bgZoom{
+      0%{background-size:110%;}
+      50%{background-size:120%;}
+      100%{background-size:110%;}
+    }
+
+    /* Section glow background */
+    .section-glow::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at top left, rgba(106,92,255,0.12), transparent 40%),
+        radial-gradient(circle at bottom right, rgba(0,247,255,0.12), transparent 40%);
+      z-index:0;
+    }
+
+    .section-glow > *{
+      position:relative;
+      z-index:1;
+    
+      @keyframes bgZoom{
+  0%{
+    background-size:105%;
+  }
+  50%{
+    background-size:120%;
+  }
+  100%{
+    background-size:105%;
+  }
+}
+
+    
+    }
+    /* Background blur layer */
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      backdrop-filter:blur(6px);
+      background:rgba(0,0,0,0.15);
+      z-index:0;
+    }
+
+    .hero  div{
+      position:relative;
+      z-index:2;
+    }{
+      50%{background-position:100% 50%;}
+      100%{background-position:0% 50%;}
+    
+    }
+    /* Floating particles */
+    .particle{
+      position:absolute;
+      width:6px;
+      height:6px;
+      background:rgba(0,247,255,0.6);
+      border-radius:50%;
+      animation:float 8s linear infinite;
+    }
+
+    @keyframes float{
+      from{transform:translateY(100vh);opacity:0;}
+      to{transform:translateY(-10vh);opacity:1;}
+    }
+      to{opacity:1;transform:translateY(0);}
+    
+
+    @media(max-width:768px){
+      nav{padding:15px 30px;}
+      .hero h1{font-size:2.5rem;}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <h2>HackFest 2025</h2>
+  <div>
+    <a href="#home">Home</a>
+    <a href="#highlights">Highlights</a>
+    <a href="#schedule">Schedule</a>
+    <a href="#register">Register</a>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+
+  <!-- Animated particles -->
+  <span class="particle" style="left:10%;animation-delay:0s"></span>
+  <span class="particle" style="left:25%;animation-delay:2s"></span>
+  <span class="particle" style="left:40%;animation-delay:4s"></span>
+  <span class="particle" style="left:60%;animation-delay:1s"></span>
+  <span class="particle" style="left:75%;animation-delay:3s"></span>
+  <span class="particle" style="left:90%;animation-delay:5s"></span>
+  <div>
+    <h1>College Hackathon 2025</h1>
+    <div class="tagline" id="tagline"></div>
+    <p>📅 20–21 January | 📍 St.john collage of engineering and management
+    </p>
+    <button class="btn">Register Now</button>
+
+    <div class="countdown">
+      <div class="time-box"><h2 id="days">00</h2><p>Days</p></div>
+      <div class="time-box"><h2 id="hours">00</h2><p>Hours</p></div>
+      <div class="time-box"><h2 id="minutes">00</h2><p>Minutes</p></div>
+      <div class="time-box"><h2 id="seconds">00</h2><p>Seconds</p></div>
+      
+    </div>
+    
+  </div>
+</section>
+
+<section id="highlights" class="section-glow">
+  <h2 class="title">Event Highlights</h2>
+  <div class="cards">
+    <div class="card"><i class="fa-solid fa-clock"></i><h3>24 Hours</h3><p>Non-stop coding</p></div>
+    <div class="card"><i class="fa-solid fa-trophy"></i><h3>Prizes</h3><p>Exciting rewards</p></div>
+    <div class="card"><i class="fa-solid fa-users"></i><h3>Teamwork</h3><p>Collaborate & grow</p></div>
+    <div class="card"><i class="fa-solid fa-rocket"></i><h3>Innovation</h3><p>Build real ideas</p></div>
+  </div>
+</section>
+
+<section id="schedule" class="section-glow">
+  <h2 class="title">Event Schedule</h2>
+  <div class="timeline">
+    <div class="step">Registration Opens</div>
+    <div class="step">Idea Pitching</div>
+    <div class="step">Coding Phase</div>
+    <div class="step">Final Presentation</div>
+    <div class="step">Winner Announcement</div>
+  </div>
+</section>
+
+<section id="register" class="section-glow">
+  <h2 class="title">Register Now</h2>
+  <form>
+    <input type="text" placeholder="Full Name" required>
+    <input type="email" placeholder="Email Address" required>
+    <input type="text" placeholder="College Name" required>
+        <input type="text" placeholder="Mobile Number" required>
+    <input type="text" placeholder="Team Name (Optional)">
+    <button class="btn" type="submit">Submit</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2025 HackFest | Designed for Frontend Practice</p>
+</footer>
+
+<script>
+  // Countdown
+  const eventDate = new Date("Jan 20, 2026 09:00:00").getTime();
+
+  setInterval(() => {
+    const now = new Date().getTime();
+    const diff = eventDate - now;
+
+    document.getElementById('days').innerText = Math.floor(diff / (1000*60*60*24));
+    document.getElementById('hours').innerText = Math.floor((diff / (1000*60*60)) % 24);
+    document.getElementById('minutes').innerText = Math.floor((diff / (1000*60)) % 60);
+    document.getElementById('seconds').innerText = Math.floor((diff / 1000) % 60);
+  },1000);
+
+  // AI-style rotating taglines
+  const taglines = [
+    "Innovate. Collaborate. Dominate.",
+    "Where Ideas Become Reality.",
+    "Code Today. Lead Tomorrow.",
+    "Think Big. Build Fast."
+  ];
+
+  let i = 0;
+  const taglineEl = document.getElementById('tagline');
+
+  setInterval(() => {
+    taglineEl.innerText = taglines[i];
+    i = (i + 1) % taglines.length;
+  },3000);
+  
+</script>
+
+</body>
+</html>
